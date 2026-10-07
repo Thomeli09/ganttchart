@@ -4,7 +4,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>38482f5a-eaea-40d3-a6f6-ac4c5a466a72</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Ganttchart.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,40 +22,21 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="examples\advanced_simulation.py" />
-    <Compile Include="examples\basic_simulation.py" />
-    <Compile Include="Ganttchart.py" />
-    <Compile Include="src\DataManagementLib.py" />
-    <Compile Include="src\GanttChartLib.py" />
-    <Compile Include="src\ganttchart\geometry\fault.py" />
-    <Compile Include="src\ganttchart\geometry\geometry.py" />
-    <Compile Include="src\ganttchart\geometry\rock.py" />
-    <Compile Include="src\ganttchart\geometry\terrain.py" />
-    <Compile Include="src\ganttchart\geometry\__init__.py" />
-    <Compile Include="src\ganttchart\materials\fault_material.py" />
-    <Compile Include="src\ganttchart\materials\material.py" />
-    <Compile Include="src\ganttchart\materials\rock_material.py" />
-    <Compile Include="src\ganttchart\materials\terrain_material.py" />
-    <Compile Include="src\ganttchart\materials\__init__.py" />
-    <Compile Include="src\ganttchart\mechanics\contact.py" />
-    <Compile Include="src\ganttchart\mechanics\dynamics.py" />
-    <Compile Include="src\ganttchart\mechanics\rebound.py" />
-    <Compile Include="src\ganttchart\mechanics\__init__.py" />
-    <Compile Include="src\ganttchart\simulation\trajectory.py" />
-    <Compile Include="src\ganttchart\simulation\__init__.py" />
-    <Compile Include="src\ganttchart\visualization\DataManagementLib.py" />
-    <Compile Include="src\ganttchart\visualization\ObjectManagementLib.py" />
-    <Compile Include="src\ganttchart\visualization\plot.py" />
+    <Compile Include="examples\advanced_ganttchart.py" />
+    <Compile Include="examples\basic_ganttchart.py" />
+    <Compile Include="src\ganttchart\ganttchart\ganttchart.py" />
+    <Compile Include="src\ganttchart\ganttchart\__init__.py" />
+    <Compile Include="src\ganttchart\visualization\datafunc.py" />
+    <Compile Include="src\ganttchart\visualization\objectfun.py" />
+    <Compile Include="src\ganttchart\visualization\plot_2d.py" />
     <Compile Include="src\ganttchart\visualization\plot_basic.py" />
-    <Compile Include="src\ganttchart\visualization\plot_parameter.py" />
+    <Compile Include="src\ganttchart\visualization\plot_parameters.py" />
     <Compile Include="src\ganttchart\visualization\__init__.py" />
     <Compile Include="src\ganttchart\__init__.py" />
-    <Compile Include="src\ObjectManagementLib.py" />
-    <Compile Include="src\PlotLib.py" />
-    <Compile Include="tests\test_bloc.py" />
-    <Compile Include="tests\test_geometry.py" />
-    <Compile Include="tests\test_materials.py" />
-    <Compile Include="tests\test_simulation.py" />
+    <Compile Include="src\ganttchart\visualization\plot_3d.py" />
+    <Compile Include="tests\test_ganttchart.py" />
+    <Compile Include="tests\test_plot.py" />
+    <Compile Include="tests\test_ganttchart_record.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CITATION.cff" />
@@ -70,10 +52,7 @@
     <Folder Include="examples\" />
     <Folder Include="src\" />
     <Folder Include="src\ganttchart\" />
-    <Folder Include="src\ganttchart\geometry\" />
-    <Folder Include="src\ganttchart\materials\" />
-    <Folder Include="src\ganttchart\mechanics\" />
-    <Folder Include="src\ganttchart\simulation\" />
+    <Folder Include="src\ganttchart\ganttchart\" />
     <Folder Include="src\ganttchart\visualization\" />
     <Folder Include="src\ganttchart\__pycache__\" />
     <Folder Include="tests\" />
