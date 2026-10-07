@@ -37,18 +37,18 @@ class ParamPLT:
         # Plot
         self._color = color
         self._colorMap = 'viridis'
-        self._LineType = LineType
-        self._LineSize = Linesize
-        self._MarkerType = Marker
-        self._MarkerSize = Linesize
+        self._lineType = lineType
+        self._LineSize = linesize
+        self._MarkerType = marker
+        self._MarkerSize = linesize
         self._Alpha = 1  # Blending value, from 0 (transparent) to 1 (opaque)
         self._HatchType = ''
 
         # Text
-        self._TitleSize = Fontsize
-        self._FontSize = Fontsize
-        self._TicksSize = Fontsize
-        self._LegendsSize = Fontsize
+        self._TitleSize = fontsize
+        self._FontSize = fontsize
+        self._TicksSize = fontsize
+        self._LegendsSize = fontsize
         self._XLabel = None
         self._YLabel = None
         self._ZLabel = None
@@ -77,7 +77,7 @@ class ParamPLT:
         # Grid
         self._GridAxis = 'both'
         self._GridColor = None
-        self._GridLineType = None
+        self._GridlineType = None
         self._GridLineSize = 0.4
         self._GridAlpha = 1
         self._BBox = True # To add a box around the plot or not
@@ -213,26 +213,26 @@ class ParamPLT:
                          144: "spring_r", 145: "summer_r", 146: "autumn_r", 147: "winter_r", 148: "cool_r", 149: "Wistia_r",
                          150: "hot_r", 151: "afmhot_r", 152: "gist_heat_r", 153: "copper_r"}
 
-        self._ColorMap = ColorMapDict.(ValColorMap, 'viridis')
+        self._ColorMap = ColorMapDict.get(ValColorMap, 'viridis')
 
     @property
-    def LineType(self):
-        # Determine line type based on LineType input
-        LineTypeDict = {0: '-', 1: '--', 2: '-.', 3: ':', 4: 'None'}
-        LineType = LineTypeDict.(self._LineType, '-')
-        return LineType
+    def lineType(self):
+        # Determine line type based on lineType input
+        lineTypeDict = {0: '-', 1: '--', 2: '-.', 3: ':', 4: 'None'}
+        lineType = lineTypeDict.get(self._lineType, '-')
+        return lineType
 
-    @LineType.setter
-    def LineType(self, LineType):
-        self._LineType = LineType
+    @lineType.setter
+    def lineType(self, lineType):
+        self._lineType = lineType
 
     @property
     def LineSize(self):
         return self._LineSize
 
     @LineSize.setter
-    def LineSize(self, Linesize):
-        self._LineSize = Linesize
+    def LineSize(self, linesize):
+        self._LineSize = linesize
 
     @property
     def Marker(self):
@@ -241,7 +241,7 @@ class ParamPLT:
                           12: '8', 13: 's', 14: 'p', 15: 'P', 16: '*', 17: 'h',
                           18: 'H', 19: '+', 20: 'x', 21: 'X', 22: 'D', 23: 'd',
                           24: '|', 25: '_'}
-        MarkerType = MarkerTypeDict.(self._MarkerType, '')
+        MarkerType = MarkerTypeDict.get(self._MarkerType, '')
         return MarkerType
 
     @Marker.setter
@@ -316,13 +316,13 @@ class ParamPLT:
                     Hatch = ''  # Reset `Hatch` for each sub-list
                     for Val in LItem:
                         # Add the pattern corresponding to the value to `Hatch`
-                        Hatch += HatchTypeDict.(Val, '')  
+                        Hatch += HatchTypeDict.get(Val, '')  
                     LHatch.append(Hatch)  # Append the complete pattern of the sub-list to `LHatch`
                 else:  # If the element is an integer or a simple value
                     Val = Item
-                    Hatch += HatchTypeDict.(Val, '')  # Add the pattern directly
+                    Hatch += HatchTypeDict.get(Val, '')  # Add the pattern directly
         else:  # If `HatchType` is not a list
-            Hatch = HatchTypeDict.(HatchType, '')  # Retrieve the corresponding pattern
+            Hatch = HatchTypeDict.get(HatchType, '')  # Retrieve the corresponding pattern
 
         # Assign the final value to `self._HatchType`
         if LHatch:  # If `LHatch` contains complex patterns
@@ -364,8 +364,8 @@ class ParamPLT:
         return self._FontSize
 
     @FontSize.setter
-    def FontSize(self, Fontsize):
-        self._FontSize = Fontsize
+    def FontSize(self, fontsize):
+        self._FontSize = fontsize
 
     @property
     def TicksSize(self):
@@ -481,7 +481,7 @@ class ParamPLT:
                          'lower left': 'lower left', 'lower right': 'lower right', 'right': 'right', 
                          'center left': 'center left', 'center right': 'center right', 
                          'lower center': 'lower center', 'upper center': 'upper center', 'center': 'center'}
-        self._LegendsLoc = LegendLocDict.(Loc, 'best')
+        self._LegendsLoc = LegendLocDict.get(Loc, 'best')
 
     @property
     def ColorBarTitle(self):
@@ -505,7 +505,7 @@ class ParamPLT:
                          3: 'symlog', 4: 'function',
                          5: 'functionlog', 6: 'asinh',
                          7: 'mercator', 8: None}
-        ScaleType = ScaleTypeDict.(Val, 'linear')
+        ScaleType = ScaleTypeDict.get(Val, 'linear')
         return ScaleType
 
     @property
@@ -616,19 +616,19 @@ class ParamPLT:
 
         self._GridColor = Color
 
-        self._GridLineType = None
+        self._GridlineType = None
         self._GridLineSize = 0.4
 
     @property
-    def GridLineType(self):
-        # Determine line type based on LineType input
-        LineTypeDict = {0: '-', 1: '-', 2: '--', 3: '-.', 4: ':'}
-        LineType = LineTypeDict.(self._GridLineType, '-')
-        return LineType
+    def GridlineType(self):
+        # Determine line type based on lineType input
+        lineTypeDict = {0: '-', 1: '-', 2: '--', 3: '-.', 4: ':'}
+        lineType = lineTypeDict.get(self._GridlineType, '-')
+        return lineType
 
-    @GridLineType.setter
-    def GridLineType(self, LineType):
-        self._GridLineType = LineType
+    @GridlineType.setter
+    def GridlineType(self, lineType):
+        self._GridlineType = lineType
 
     @property
     def GridLineSize(self):
@@ -977,13 +977,13 @@ def PLTLegendWithTitlesSubtitles(LegendTitle, LLegendSubtitles, LSubtitlesPositi
                            bbox_to_anchor=(1, 1), loc='upper left')
 
     # Setting the title properties
-    FormatText(Text=Legend._title(), Fontsize=paramPLT.LegendsSize * TitleSizeRatio, Weight=None,
+    FormatText(Text=Legend._title(), fontsize=paramPLT.LegendsSize * TitleSizeRatio, Weight=None,
                Style=None, Family=None, Color=None, BackgroundColor=None, Alpha=None)
 
     # Setting the subtitles properties
     for text in Legend._texts():
         if text._text() in LLegendSubtitles: # In case of the subtitles
-            FormatText(Text=text, Fontsize=paramPLT.LegendsSize * SubtitlesSizeRatio, Weight='bold',
+            FormatText(Text=text, fontsize=paramPLT.LegendsSize * SubtitlesSizeRatio, Weight='bold',
                        Style=None, Family=None, Color=None, BackgroundColor=None, Alpha=None)
         else:  # In case of the different labels
             pass
@@ -1014,18 +1014,18 @@ def PLTColorBar(paramPLT, Location=0, Fraction=0.10, Padding=-1, Spacing=0, BDra
         return
     # Location of the Color bar
     LocationDict = {0: 'right', 1: 'left', 2: 'top', 3: 'bottom'}
-    Location = LocationDict.(Location, 'right')
+    Location = LocationDict.get(Location, 'right')
 
     # Padding between the Color bar and the plot
     if Padding<0:
         PaddingDict = {'right': 0.05, 'left': 0.05, 'top': 0.15, 'bottom': 0.15}
-        Padding = PaddingDict.(Location, 0.05)
+        Padding = PaddingDict.get(Location, 0.05)
     else:
         Padding = Padding
 
     # Uniformity of the Color bar
     SpacingDict = {0: 'uniform', 1: 'proportional'}
-    Spacing = SpacingDict.(Spacing, 'uniform')
+    Spacing = SpacingDict.get(Spacing, 'uniform')
 
     Cb = Fig.Colorbar(mappable=Mappable, ax=Ax, location=Location, fraction=Fraction, pad=Padding, 
                       format=None, spacing=Spacing, drawedges=BDrawEdges)
@@ -1036,7 +1036,7 @@ def PLTGrid(paramPLT):
     if paramPLT.GridAxis:
         plt.grid(axis=paramPLT.GridAxis,
                  color=paramPLT.Color,
-                 linestyle=paramPLT.GridLineType,
+                 linestyle=paramPLT.GridlineType,
                  linewidth=paramPLT.GridLineSize,
                  alpha=paramPLT.GridAlpha)
 
@@ -1235,7 +1235,7 @@ def PLTSave(FileName, Width_cm, Height_cm, Scale=1, DPI=300, Format=1, BUpdateLa
     FormatDict = {'png': '.png', 1: '.png', 'pdf': '.pdf', 2: '.pdf', 
                   'svg': '.svg', 3: '.svg', 'eps': '.eps', 4: '.eps', 
                   'jpg': '.jpg', 5: '.jpg', 'jpeg': '.jpeg', 6: '.jpeg'}
-    FormatName = FormatDict.(Format, 'png')  # Default to PNG if format is not recognized
+    FormatName = FormatDict.get(Format, 'png')  # Default to PNG if format is not recognized
 
     FullName = FileName + FormatName
 
@@ -1263,7 +1263,7 @@ def PLTShowRefSavePlace():
     print("Info : ", os.cwd())
 
 def DefaultParamPLT():
-    return ParamPLT(Color='black', LineType=0, Marker=0, Linesize=2, Fontsize=16)
+    return ParamPLT(Color='black', lineType=0, Marker=0, linesize=2, fontsize=16)
 
 # Version in 3D case with PLT3DShow
 
@@ -1271,7 +1271,7 @@ def DefaultParamPLT():
 
 
 # Text management functions for matplotlib
-def FormatText(Text, Fontsize=None, Weight=None, Style=None, Family=None,
+def FormatText(Text, fontsize=None, Weight=None, Style=None, Family=None,
                 Color=None, BackgroundColor=None, Alpha=None):
     """
     Applies text formatting options dynamically.
@@ -1279,7 +1279,7 @@ def FormatText(Text, Fontsize=None, Weight=None, Style=None, Family=None,
     
     Args:
         Text: Matplotlib text object
-        Fontsize: float or {'xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'}
+        fontsize: float or {'xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'}
         Weight: {'light', 'normal', 'medium', 'semibold', 'bold', 'heavy', 'black'}
         Style: {'normal', 'italic', 'oblique'} or None
         Family: {'serif', 'sans-serif', 'cursive', 'fantasy', 'monospace'} or None
@@ -1287,8 +1287,8 @@ def FormatText(Text, Fontsize=None, Weight=None, Style=None, Family=None,
         BackgroundColor: Same as Color
         Alpha: float (0.0 to 1.0, where 0 is fully transparent and 1 is opaque)
     """
-    if Fontsize is not None:
-        Text.set_fontsize(Fontsize)
+    if fontsize is not None:
+        Text.set_fontsize(fontsize)
 
     if Weight is not None:
         Text.set_weight(Weight)

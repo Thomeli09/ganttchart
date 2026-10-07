@@ -24,10 +24,12 @@
   <ItemGroup>
     <Compile Include="examples\advanced_ganttchart.py" />
     <Compile Include="examples\basic_ganttchart.py" />
-    <Compile Include="src\ganttchart\ganttchart\ganttchart.py" />
-    <Compile Include="src\ganttchart\ganttchart\__init__.py" />
-    <Compile Include="src\ganttchart\visualization\datafunc.py" />
-    <Compile Include="src\ganttchart\visualization\objectfun.py" />
+    <Compile Include="src\ganttchart\ganttchart.py" />
+    <Compile Include="src\ganttchart\utils\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\ganttchart\utils\data.py" />
+    <Compile Include="src\ganttchart\utils\objects.py" />
     <Compile Include="src\ganttchart\visualization\plot_2d.py" />
     <Compile Include="src\ganttchart\visualization\plot_basic.py" />
     <Compile Include="src\ganttchart\visualization\plot_parameters.py" />
@@ -52,7 +54,7 @@
     <Folder Include="examples\" />
     <Folder Include="src\" />
     <Folder Include="src\ganttchart\" />
-    <Folder Include="src\ganttchart\ganttchart\" />
+    <Folder Include="src\ganttchart\utils\" />
     <Folder Include="src\ganttchart\visualization\" />
     <Folder Include="src\ganttchart\__pycache__\" />
     <Folder Include="tests\" />
