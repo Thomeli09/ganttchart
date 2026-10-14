@@ -22,22 +22,33 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="examples\02_gantt_advanced.py" />
+    <Compile Include="examples\03_gantt_dashboard.py" />
+    <Compile Include="examples\04_gantt_dataframe.py" />
+    <Compile Include="examples\05_visualization_basic.py" />
+    <Compile Include="examples\06_visualization_advanced.py" />
+    <Compile Include="examples\07_visualization_shapes.py" />
     <Compile Include="examples\advanced_ganttchart.py" />
-    <Compile Include="examples\basic_ganttchart.py" />
+    <Compile Include="examples\01_ganttchart_basic.py" />
+    <Compile Include="examples\visualization.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\ganttchart\ganttchart.py" />
     <Compile Include="src\ganttchart\utils\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="src\ganttchart\utils\data.py" />
-    <Compile Include="src\ganttchart\utils\objects.py" />
     <Compile Include="src\ganttchart\visualization\plot_2d.py" />
     <Compile Include="src\ganttchart\visualization\plot_basic.py" />
+    <Compile Include="src\ganttchart\visualization\plot_gantt.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\ganttchart\visualization\plot_parameters.py" />
     <Compile Include="src\ganttchart\visualization\__init__.py" />
     <Compile Include="src\ganttchart\__init__.py" />
     <Compile Include="src\ganttchart\visualization\plot_3d.py" />
     <Compile Include="tests\test_ganttchart.py" />
-    <Compile Include="tests\test_plot.py" />
+    <Compile Include="tests\test_visualization.py" />
     <Compile Include="tests\test_ganttchart_record.py" />
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +58,7 @@
     <Content Include="README.md" />
     <Content Include="requirements-dev.txt" />
     <Content Include="requirements.txt" />
+    <Content Include="src\ganttchart\visualization\README.md" />
     <Content Include="src\ganttchart\__pycache__\__init__.cpython-312.pyc" />
   </ItemGroup>
   <ItemGroup>

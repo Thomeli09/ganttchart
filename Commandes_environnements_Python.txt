@@ -1,0 +1,42 @@
+COMMANDES PYTHON — ENVIRONNEMENTS VIRTUELS (Windows CMD)
+=====================================================
+
+1. Se rendre dans le dossier du projet
+---------------------------------------
+cd /d "C:\Users\Thommes Eliott\OneDrive - Universite de Liege\Documents\Python\VStudio\Ganttchart"
+
+2. Créer un environnement virtuel avec venv
+------------------------------------------
+python -m venv .MonEnv
+
+REMARQUE :
+- « venv » est le module Python permettant de créer un environnement virtuel.
+- « .MonEnv » est le nom du dossier de l'environnement, que vous pouvez modifier.
+- Par exemple : python -m venv .MonEnv
+- « uv » est un outil alternatif de gestion des environnements et des dépendances ; ce n'est pas un nom d'environnement imposé.
+
+3. Activer l'environnement sous Windows CMD
+-------------------------------------------
+.MonEnv\Scripts\activate.bat
+
+4. Installer des paquets dans l'environnement actif
+---------------------------------------------------
+python -m pip install numpy matplotlib
+python -m pip list
+
+5. Désactiver l'environnement
+----------------------------
+deactivate
+
+6. Créer un environnement avec uv (si uv est installé)
+------------------------------------------------------
+uv venv .venv
+
+Pour l'activer dans CMD :
+.MonEnv\Scripts\activate.bat
+
+NOTES :
+- Les commandes ci-dessus sont prévues pour l'invite de commandes Windows (CMD).
+- Pour PowerShell, l'activation est : .venv\Scripts\Activate.ps1
+- Ne pas ajouter « % » comme commentaire à la fin d'une commande CMD ; utilisez REM dans un fichier .bat.
+- Il est conseillé d'ajouter le dossier .venv/ dans le fichier .gitignore du projet.
