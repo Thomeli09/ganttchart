@@ -12,6 +12,8 @@
     <OutputPath>.</OutputPath>
     <Name>Ganttchart</Name>
     <RootNamespace>Ganttchart</RootNamespace>
+    <InterpreterId>
+    </InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
