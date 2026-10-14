@@ -673,7 +673,7 @@ def plot_pie(
     )
     wedges = list(result[0])
     texts = list(result[1])
-    numeric_texts = list(result[2]) if len(result) == 3 else []
+    numeric_texts = list(result[2]) if display != "none" else []
     if options.hatch is not None:
         for wedge in wedges:
             wedge.set_hatch(options.hatch)
@@ -688,6 +688,10 @@ def plot_pie(
                 ha="left" if x >= 0 else "right",
                 va="center", fontsize=options.fontsize,
             )
+    # A pie chart has no meaningful numerical x/y axes. Hide its tick marks,
+    # tick labels, spines and grid while retaining slice labels and the title.
+    # This remains effective if configure_axes() is called afterward. 
+    ax.set_axis_off()
     return wedges, texts, numeric_texts
 
 

@@ -156,6 +156,16 @@ def test_pie(plot):
         plot_pie(ax, [0, 0])
 
 
+def test_pie_hides_numerical_axes(plot):
+    """Pie chart axes stay hidden after applying general plot parameters."""
+    _, ax = plot
+    plot_pie(ax, [40, 35, 25], labels=["Design", "Build", "Test"], display="both")
+    configure_axes(ax, PlotParameters(title="Work distribution"))
+    assert not ax.axison
+    assert ax.get_title() == "Work distribution"
+    assert len(ax.texts) >= 6  # Three labels and three numeric annotations.
+
+
 def test_image(plot):
     _, ax = plot
     image = plot_image(ax, [[1, 2], [3, 4]], annotate=True, colorbar=True)
@@ -200,7 +210,26 @@ def test_styled_legend(plot):
     legend = add_legend_with_subtitles(ax, "Heading", ["Sub"], [1])
     assert len(legend.get_texts()) == 3
 
+@pytest.mark.parametrize("display", ["none", "percent", "absolute", "both"])
+def test_pie_indexable_container_compatibility(plot, monkeypatch, display):
+    """Simulate Matplotlib 3.11's indexable PieContainer without __len__."""
+    _, ax = plot
+    original = Axes.pie
 
+    class IndexOnlyPieResult:
+        def __init__(self, result):
+            self.result = result
 
+        def __getitem__(self, item):
+            return self.result[item]
 
+    def pie_returning_container(self, *args, **kwargs):
+        return IndexOnlyPieResult(original(self, *args, **kwargs))
 
+    monkeypatch.setattr(Axes, "pie", pie_returning_container)
+    wedges, labels, numbers = plot_pie(
+        ax, [1, 2], labels=["A", "B"], display=display,
+    )
+    assert len(wedges) == 2
+    assert len(labels) == 2
+    assert len(numbers) == (0 if display == "none" else 2)

@@ -30,11 +30,7 @@
     <Compile Include="examples\05_visualization_basic.py" />
     <Compile Include="examples\06_visualization_advanced.py" />
     <Compile Include="examples\07_visualization_shapes.py" />
-    <Compile Include="examples\advanced_ganttchart.py" />
-    <Compile Include="examples\01_ganttchart_basic.py" />
-    <Compile Include="examples\visualization.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="examples\01_gantt_basic.py" />
     <Compile Include="src\ganttchart\ganttchart.py" />
     <Compile Include="src\ganttchart\utils\__init__.py">
       <SubType>Code</SubType>
