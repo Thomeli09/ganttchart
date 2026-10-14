@@ -688,6 +688,10 @@ def plot_pie(
                 ha="left" if x >= 0 else "right",
                 va="center", fontsize=options.fontsize,
             )
+    # A pie chart has no meaningful numerical x/y axes. Hide its tick marks,
+    # tick labels, spines and grid while retaining slice labels and the title.
+    # This remains effective if configure_axes() is called afterward. 
+    ax.set_axis_off()
     return wedges, texts, numeric_texts
 
 

@@ -156,6 +156,16 @@ def test_pie(plot):
         plot_pie(ax, [0, 0])
 
 
+def test_pie_hides_numerical_axes(plot):
+    """Pie chart axes stay hidden after applying general plot parameters."""
+    _, ax = plot
+    plot_pie(ax, [40, 35, 25], labels=["Design", "Build", "Test"], display="both")
+    configure_axes(ax, PlotParameters(title="Work distribution"))
+    assert not ax.axison
+    assert ax.get_title() == "Work distribution"
+    assert len(ax.texts) >= 6  # Three labels and three numeric annotations.
+
+
 def test_image(plot):
     _, ax = plot
     image = plot_image(ax, [[1, 2], [3, 4]], annotate=True, colorbar=True)
