@@ -13,8 +13,6 @@ import numpy as np
 from highlight_text import fig_text
 import os
 
-from pytest import param
-
 
 # Custom Lib
 from DataManagementLib import LenData
