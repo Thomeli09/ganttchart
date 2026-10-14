@@ -200,7 +200,26 @@ def test_styled_legend(plot):
     legend = add_legend_with_subtitles(ax, "Heading", ["Sub"], [1])
     assert len(legend.get_texts()) == 3
 
+@pytest.mark.parametrize("display", ["none", "percent", "absolute", "both"])
+def test_pie_indexable_container_compatibility(plot, monkeypatch, display):
+    """Simulate Matplotlib 3.11's indexable PieContainer without __len__."""
+    _, ax = plot
+    original = Axes.pie
 
+    class IndexOnlyPieResult:
+        def __init__(self, result):
+            self.result = result
 
+        def __getitem__(self, item):
+            return self.result[item]
 
+    def pie_returning_container(self, *args, **kwargs):
+        return IndexOnlyPieResult(original(self, *args, **kwargs))
 
+    monkeypatch.setattr(Axes, "pie", pie_returning_container)
+    wedges, labels, numbers = plot_pie(
+        ax, [1, 2], labels=["A", "B"], display=display,
+    )
+    assert len(wedges) == 2
+    assert len(labels) == 2
+    assert len(numbers) == (0 if display == "none" else 2)

@@ -673,7 +673,7 @@ def plot_pie(
     )
     wedges = list(result[0])
     texts = list(result[1])
-    numeric_texts = list(result[2]) if len(result) == 3 else []
+    numeric_texts = list(result[2]) if display != "none" else []
     if options.hatch is not None:
         for wedge in wedges:
             wedge.set_hatch(options.hatch)
