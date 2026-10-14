@@ -1,18 +1,21 @@
 cff-version: 1.2.0
-title: >-
-  Chute de blocs: 
-message: >-
-  If you use this software, please cite it using the
-  metadata from this file.
+message: "If you use ganttchart in scientific or technical work, please cite this software."
 type: software
+title: "ganttchart"
 authors:
-  - given-names: Eliott
-    family-names: Thommes
-    orcid: 'https://orcid.org/0009-0005-0697-2438'
-repository-code: 'https://github.com/Thomeli09/GCIV2036-2_ChuteDeBlocs'
-license: MIT
-version: 0.0.1
+  - family-names: "Thommes"
+    given-names: "Eliott"
+    orcid: "https://orcid.org/0009-0005-0697-2438"
+version: "0.0.1"
 date-released: '2026-09-17'
+license: "GPL-3.0-or-later"
+repository-code: "https://github.com/Thomeli09/ganttchart"
+url: "https://github.com/Thomeli09/ganttchart"
+keywords:
+  - gantt chart
+  - scheduling
+  - matplotlib
+  - project management
 
 # Zenodo integration (optional):
 # 1. Enable the Zenodo webhook at zenodo.org/account/settings/github
