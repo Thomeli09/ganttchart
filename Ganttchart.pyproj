@@ -25,13 +25,15 @@
     <Compile Include="examples\advanced_ganttchart.py" />
     <Compile Include="examples\basic_ganttchart.py" />
     <Compile Include="src\ganttchart\ganttchart.py" />
+    <Compile Include="src\ganttchart\utils\data - Copy.py" />
     <Compile Include="src\ganttchart\utils\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="src\ganttchart\utils\data.py" />
-    <Compile Include="src\ganttchart\utils\objects.py" />
+    <Compile Include="src\ganttchart\visualization\plot_2d - Copy.py" />
     <Compile Include="src\ganttchart\visualization\plot_2d.py" />
     <Compile Include="src\ganttchart\visualization\plot_basic.py" />
+    <Compile Include="src\ganttchart\visualization\plot_parameters - Copy.py" />
     <Compile Include="src\ganttchart\visualization\plot_parameters.py" />
     <Compile Include="src\ganttchart\visualization\__init__.py" />
     <Compile Include="src\ganttchart\__init__.py" />

@@ -543,8 +543,5 @@ def PLT2DCircle(x, y, NPoints, Radius, paramPLT, BFill=False):
         plt.fill(XPoint, YPoint, color=paramPLT.getColour, zorder=0,
                  label=paramPLT.getLegends)
 
-# Plotting functions in 3D
-# 3D
 
-# 3D Shapes
 
