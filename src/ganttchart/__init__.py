@@ -1,5 +1,14 @@
-# rockfall/__init__.py
+"""Create, manage, and visualize Gantt charts.
 
-#from .geometry import Rock
-#from .mechanics import kinetic_energy
-# goal is to allow users to import from rockfall directly, e.g., from rockfall import Rock, kinetic_energy  
+Examples
+--------
+from ganttchart import GanttChart
+chart = GanttChart()
+chart.add_task("Planning", "2026-10-14", "2026-10-17", completion=0.5)
+len(chart.tasks)
+1
+"""
+
+from .ganttchart import GanttChart, Task, add_days
+
+__all__ = ["GanttChart", "Task", "add_days"]
